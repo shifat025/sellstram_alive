@@ -1,0 +1,14 @@
+name: Keep Sellstream App Alive
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # Runs every 10 minutes
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Sellstream App
+        run: |
+          curl -X GET https://sellstreams1.onrender.com/doc/
